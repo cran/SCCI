@@ -34,7 +34,7 @@ double binaryRegretPrecal(int M){
         return 0.0;
     double sum = 1.0;
     double b = 1.0;
-    int bound = (int) ceil(2.0 + sqrt(2.0 * M * p * log(10)));
+    int bound = (int) ceil(2.0 + sqrt(2.0 * M * p * log((double)10.0)));
     for(int i = 1; i <= bound; i++){
         b = (M - i + 1) * (b / M);
         sum += b;
@@ -64,7 +64,7 @@ double regret(int M, int K){
         double alpha = (double) K / (double) M;
         double ca = 0.5 + 0.5 * sqrt(1.0 + 4.0/alpha);
         double logReg = (double)M * (log(alpha) + (alpha + 2.0) * log(ca) - 1.0 / ca) - 0.5 * log(ca + 2.0 / alpha);
-        return logReg / log(2);
+        return logReg / log((double)2.0);
     }else{
         double costs = regretPrecal(M, K);
         if(costs <= 0.0)

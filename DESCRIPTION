@@ -2,8 +2,8 @@ Package: SCCI
 Type: Package
 Title: Stochastic Complexity-Based Conditional Independence Test for
         Discrete Data
-Version: 1.0
-Date: 2019-02-21
+Version: 1.1
+Date: 2019-05-24
 Author: Alexander Marx [aut,cre] Jilles Vreeken [aut]
 Maintainer: Alexander Marx <amarx@mpi-inf.mpg.de>
 Description: An efficient implementation of SCCI using 'Rcpp'. SCCI is short for the Stochastic Complexity-based Conditional Independence criterium (Marx and Vreeken, 2019). SCCI is an asymptotically unbiased and L2 consistent estimator of (conditional) mutual information for discrete data. 
@@ -13,6 +13,6 @@ LinkingTo: Rcpp
 Suggests: pcalg, Rgraphviz
 Encoding: UTF-8
 NeedsCompilation: yes
-Packaged: 2019-02-28 09:51:35 UTC; mbk-97-72
+Packaged: 2019-05-24 09:23:16 UTC; mbk-97-72
 Repository: CRAN
-Date/Publication: 2019-03-01 13:30:03 UTC
+Date/Publication: 2019-05-24 09:40:03 UTC

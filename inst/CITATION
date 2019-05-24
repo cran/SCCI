@@ -3,6 +3,7 @@ bibentry(bibtype = "InProceedings",
          author=c(person("Alexander", "Marx"),
                     person("Jilles", "Vreeken")),
          year=2019,
+	 pages="496-505",
          booktitle="Proceedings of the 22th International Conference on Artificial Intelligence and Statistics",
 	series="Proceedings of Machine Learning Research",
 	publisher="PMLR")
