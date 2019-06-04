@@ -253,3 +253,13 @@ RcppExport SEXP conditionalShannonEntropy(SEXP xEXP, SEXP yEXP) {
     // return result
     return(wrap(score));
 }
+
+// Define function as extern with RcppExport
+RcppExport SEXP regret(SEXP mEXP, SEXP kEXP) {
+    // convert input
+    int m = as<int>(mEXP), k = as<int>(kEXP);
+    double reg = regret(m,k);
+    
+    // return result
+    return(wrap(reg));
+}

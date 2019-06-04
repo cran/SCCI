@@ -5,12 +5,12 @@ conditionalShannonEntropy <- function(x,y) {
     if(dim(data.frame(y))[2] == 0){
         y = data.frame(rep(0,length(x)))
     }
-    ret = .Call("conditionalShannonEntropy", x, data.matrix(y), package="SCCI")
+    ret = .Call("conditionalShannonEntropy", x, data.matrix(y), PACKAGE="SCCI")
     return(ret)
 }
 
 shannonEntropy <- function(x) {
-    ret = .Call("shannonEntropy", x, package="SCCI")
+    ret = .Call("shannonEntropy", x, PACKAGE="SCCI")
     return(ret)
 }
 
@@ -26,7 +26,7 @@ conditionalStochasticComplexity <- function(x,y,score="fNML"){
     if(score == "qNML"){
         fCall = "conditionalQNML"
     }
-    ret = .Call(fCall, data.matrix(x), data.matrix(y), package="SCCI")
+    ret = .Call(fCall, data.matrix(x), data.matrix(y), PACKAGE="SCCI")
     return(ret)
 }
 
@@ -39,21 +39,21 @@ SCCI <- function(x,y,Z,score="fNML",sym=FALSE){
         if(score == "qNML"){
             fcall = "indepqNML"
         }
-        ret = .Call(fcall, data.matrix(x), data.matrix(y), data.matrix(data.frame(x,y)), data.matrix(Z), package="SCCI")
+        ret = .Call(fcall, data.matrix(x), data.matrix(y), data.matrix(data.frame(x,y)), data.matrix(Z), PACKAGE="SCCI")
     }else{
         fcall = "indepAsymfNML"
         if(score == "qNML"){
             fcall = "indepAsymqNML"
         }
-        cxgy = .Call(fcall, data.matrix(x), data.matrix(y), data.matrix(Z), package="SCCI")
-        cygx = .Call(fcall, data.matrix(y), data.matrix(x), data.matrix(Z), package="SCCI")
+        cxgy = .Call(fcall, data.matrix(x), data.matrix(y), data.matrix(Z), PACKAGE="SCCI")
+        cygx = .Call(fcall, data.matrix(y), data.matrix(x), data.matrix(Z), PACKAGE="SCCI")
         ret = max(cxgy,cygx)
     }
     ret = max(0, ret)
     return(ret)
 }
 
-pSCCI = function(x,y,S,suffStat){
+pSCCI <- function(x,y,S,suffStat){
     xx = suffStat$dm[,x]
     yy = suffStat$dm[,y]
     n = length(xx)
@@ -63,4 +63,9 @@ pSCCI = function(x,y,S,suffStat){
     pv = min(pv, 1)
     pv = max(pv, 0)
     return(pv)
+}
+
+regret <- function(n,k){
+    ret = .Call("regret", n, k, PACKAGE="SCCI")
+    return(ret)
 }

@@ -21,6 +21,9 @@ RcppExport SEXP indepAsymfNML(SEXP,SEXP,SEXP);
 // Called from R
 RcppExport SEXP indepAsymqNML(SEXP,SEXP,SEXP);
 
+// Called from R
+RcppExport SEXP regret(SEXP,SEXP);
+
 double conditionalNML(SEXP&,SEXP&,bool);
 
 double indepNML(SEXP&,SEXP&,SEXP&,SEXP&,bool);
